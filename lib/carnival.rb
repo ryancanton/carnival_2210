@@ -8,4 +8,7 @@ class Carnival
     @rides = rides
   end
 
+  def most_popular_ride
+    @rides.max_by { |ride| ride.rider_log.count }
+  end
 end

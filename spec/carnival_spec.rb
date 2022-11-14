@@ -28,6 +28,7 @@ RSpec.describe Carnival do
       ride1.board_rider(visitor2)
       ride1.board_rider(visitor3)
       ride3.board_rider(visitor3)
+      carnival = Carnival.new(12, [ride1, ride2, ride3])
 
       expect(carnival.most_popular_ride).to eq(ride1)
     end
