@@ -43,6 +43,16 @@ RSpec.describe Ride do
       expect(visitor1.spending_money).to eq(8)
       expect(visitor2.spending_money).to eq(4)
     end
+
+    it 'only adds riders who are tall enough to ride' do
+      visitor1 = Visitor.new('Bruce', 54, '$10')
+      visitor3 = Visitor.new('Penny', 64, '$15')
+      ride3 = Ride.new({ name: 'Roller Coaster', min_height: 54, admission_fee: 2, excitement: :thrilling })
+      ride3.board_rider(visitor1)
+      ride3.board_rider(visitor3)
+
+      expect(ride3.rider_log).to eq([visitor3])
+    end
   end
 
 

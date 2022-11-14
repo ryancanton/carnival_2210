@@ -17,7 +17,7 @@ class Ride
   end
 
   def board_rider(rider)
-    if (rider.tall_enough?(@min_height) && rider.spending_money >= @admission_fee)
+    if (rider.tall_enough?(@min_height + 1) && rider.spending_money >= @admission_fee)
       rider.pay_for_ride(@admission_fee)
       @total_revenue += @admission_fee
       if !@rider_log.include?(rider)
