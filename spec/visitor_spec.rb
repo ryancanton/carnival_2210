@@ -22,4 +22,14 @@ RSpec.describe Visitor do
       expect(visitor1.preferences).to eq([:gentle, :water])
     end
   end
+
+  describe '#tall_enough?' do
+    it 'returns true if visitor height is >= given height' do
+      visitor1 = Visitor.new('Bruce', 54, '$10')
+      visitor2 = Visitor.new('Tucker', 36, '$5')
+
+      expect(visitor1.tall_enough?(54)).to eq(true)
+      expect(visitor2.tall_enough?(54)).to eq(false)
+    end
+  end
 end
