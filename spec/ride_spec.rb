@@ -54,6 +54,4 @@ RSpec.describe Ride do
       expect(ride3.rider_log).to eq([visitor3])
     end
   end
-
-
 end
