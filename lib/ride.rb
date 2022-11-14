@@ -17,8 +17,12 @@ class Ride
   end
 
   def board_rider(rider)
-    if (rider.tall_enough?(@min_height) && !@rider_log.include?(rider))
-      @rider_log.push(rider)
+    if (rider.tall_enough?(@min_height) && rider.spending_money >= @admission_fee)
+      rider.pay_for_ride(@admission_fee)
+      @total_revenue += @admission_fee
+      if !@rider_log.include?(rider)
+        @rider_log.push(rider)
+      end
     end
   end
 end
