@@ -14,4 +14,8 @@ class Visitor
   def spending_money
     @cash.delete('$').to_i
   end
+
+  def add_preference(preference)
+    @preferences.push(preference)
+  end
 end
